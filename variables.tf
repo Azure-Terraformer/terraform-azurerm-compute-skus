@@ -8,8 +8,9 @@ variable "min_vcpu" {
   description = "min cpu"
 }
 variable "min_memory_gb" {
-  type    = number
-  default = 0
+  type        = number
+  default     = 0
+  description = "min memory"
 }
 variable "max_vcpu" {
   type    = number
