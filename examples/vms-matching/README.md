@@ -25,5 +25,6 @@ No inputs.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_skus"></a> [skus](#output\_skus) | n/a |
+| <a name="output_details"></a> [details](#output\_details) | n/a |
+| <a name="output_names"></a> [names](#output\_names) | n/a |
 <!-- END_TF_DOCS -->
