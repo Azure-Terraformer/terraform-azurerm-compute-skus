@@ -11,12 +11,14 @@ A complex object containing two lists of disk SKU names:
 - 'matches' for disk SKUs that match the specified criteria.
 
 Sample structure:
+```
 {
   names = {
     all = ["Standard_LRS", "StandardSSD_LRS", "Premium_LRS", ...]
     matches = ["StandardSSD_LRS", "Premium_LRS", ...]
   }
 }
+```
 DESCRIPTION
 }
 
@@ -33,12 +35,14 @@ A complex object containing two lists of VM SKU names:
 - 'matches' for VM SKUs that match the specified minimum and maximum vCPU and memory requirements.
 
 Sample structure:
+```
 {
   names = {
     all = ["Standard_B1ls", "Standard_B1ms", "Standard_D2s_v3", ...]
     matches = ["Standard_D2s_v3", "Standard_E2s_v3", ...]
   }
 }
+```
 DESCRIPTION
 
 }
