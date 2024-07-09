@@ -40,6 +40,6 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_disks"></a> [disks](#output\_disks) | A map containing two lists of disk SKU names:<br>- 'all' for all available disk SKUs in the specified Azure region.<br>- 'matches' for disk SKUs that match the specified criteria. |
-| <a name="output_vms"></a> [vms](#output\_vms) | A map containing two lists of VM SKU names:<br>- 'all' for all available VM SKUs in the specified Azure region.<br>- 'matches' for VM SKUs that match the specified minimum and maximum vCPU and memory requirements. |
+| <a name="output_disks"></a> [disks](#output\_disks) | A complex object containing two lists of disk SKU names:<br>- 'all' for all available disk SKUs in the specified Azure region.<br>- 'matches' for disk SKUs that match the specified criteria.<br><br>Sample structure:<br>{<br>  names = {<br>    all = ["Standard\_LRS", "StandardSSD\_LRS", "Premium\_LRS", ...]<br>    matches = ["StandardSSD\_LRS", "Premium\_LRS", ...]<br>  }<br>} |
+| <a name="output_vms"></a> [vms](#output\_vms) | A complex object containing two lists of VM SKU names:<br>- 'all' for all available VM SKUs in the specified Azure region.<br>- 'matches' for VM SKUs that match the specified minimum and maximum vCPU and memory requirements.<br><br>Sample structure:<br>{<br>  names = {<br>    all = ["Standard\_B1ls", "Standard\_B1ms", "Standard\_D2s\_v3", ...]<br>    matches = ["Standard\_D2s\_v3", "Standard\_E2s\_v3", ...]<br>  }<br>} |
 <!-- END_TF_DOCS -->
