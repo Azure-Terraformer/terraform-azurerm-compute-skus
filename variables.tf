@@ -3,8 +3,9 @@ variable "location" {
   description = "Azure Region"
 }
 variable "min_vcpu" {
-  type    = number
-  default = 0
+  type        = number
+  default     = 0
+  description = "min cpu"
 }
 variable "min_memory_gb" {
   type    = number
