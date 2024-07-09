@@ -1,4 +1,4 @@
-module "compute_skus" {
+module "skus" {
   source        = "Azure-Terraformer/compute-skus/azurerm"
   version       = "1.0.0"
   location      = "westus3"

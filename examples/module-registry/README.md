@@ -11,7 +11,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_compute_skus"></a> [compute\_skus](#module\_compute\_skus) | Azure-Terraformer/compute-skus/azurerm | 1.0.0 |
+| <a name="module_skus"></a> [skus](#module\_skus) | Azure-Terraformer/compute-skus/azurerm | 1.0.0 |
 
 ## Resources
 
