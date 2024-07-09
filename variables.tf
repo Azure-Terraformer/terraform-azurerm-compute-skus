@@ -1,5 +1,6 @@
 variable "location" {
-  type = string
+  type        = string
+  description = "Azure Region"
 }
 variable "min_vcpu" {
   type    = number
