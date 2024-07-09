@@ -1,24 +1,77 @@
 variable "location" {
   type        = string
-  description = "The Azure region for which to retrieve the list of SKUs."
+  description = <<DESCRIPTION
+  The Azure region for which to retrieve the list of SKUs."
+  DESCRIPTION
 }
-variable "min_vcpu" {
-  type        = number
-  default     = 0
-  description = "The minimum number of virtual CPUs required."
+variable "vm_filter" {
+  type = object({
+    resources = object({
+      vcpu = object({
+        min = optional(number, 0)
+        max = optional(number, 9999)
+      })
+      memory_gb = object({
+        min = optional(number, 0)
+        max = optional(number, 999999)
+      })
+    })
+  })
+  default = {
+    resources = {
+      vcpu = {
+        min = 0
+        max = 9999
+      }
+      memory_gb = {
+        min = 0
+        max = 999999
+      }
+    }
+  }
+  description = <<DESCRIPTION
+An object specifying filtering criteria for VM SKUs based on vCPU and memory requirements.
+
+Attributes:
+- `resources`: An object containing:
+  - `vcpu`: An object containing:
+    - `min` (number): Minimum number of vCPUs required.
+    - `max` (number, optional): Maximum number of vCPUs allowed (default: 9999).
+  - `memory_gb`: An object containing:
+    - `min` (number): Minimum amount of memory (in GB) required.
+    - `max` (number, optional): Maximum amount of memory (in GB) allowed (default: 999999).
+
+Sample inputs:
+
+1. Specifying only `vcpu.min`:
+
+```hcl
+vm_filter = {
+  resources = {
+    vcpu = {
+      min = 4
+    }
+  }
 }
-variable "max_vcpu" {
-  type        = number
-  default     = 9999
-  description = "The maximum number of virtual CPUs allowed."
+```
+
+2. Specifying vcpu.min, vcpu.max, and memory_gb.min:
+
+```hcl
+vm_filter = {
+  resources = {
+    vcpu = {
+      min = 4
+      max = 8
+    }
+    memory_gb = {
+      min = 16
+    }
+  }
 }
-variable "min_memory_gb" {
-  type        = number
-  default     = 0
-  description = "The minimum amount of memory (in GB) required."
-}
-variable "max_memory_gb" {
-  type        = number
-  default     = 999999
-  description = "The maximum amount of memory (in GB) allowed."
+```
+
+In both cases, the default values will be applied for any unspecified attributes (vcpu.max and memory_gb.max).
+
+DESCRIPTION
 }
