@@ -14,5 +14,5 @@ jobs:
     - name: Generate TF docs
       uses: terraform-docs/gh-actions@v1.0.0
       with:
-        find-dir: /
+        working-dir: .,examples/disk-skus,examples/match-vm-sku,examples/module-registry,examples/vm-skus
         git-push: true
