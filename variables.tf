@@ -45,7 +45,7 @@ Sample inputs:
 
 1. Specifying only `vcpu.min`:
 
-```hcl
+```
 vm_filter = {
   resources = {
     vcpu = {
@@ -55,9 +55,9 @@ vm_filter = {
 }
 ```
 
-2. Specifying vcpu.min, vcpu.max, and memory_gb.min:
+2. Specifying `vcpu.min`, `vcpu.max`, and `memory_gb.min`:
 
-```hcl
+```
 vm_filter = {
   resources = {
     vcpu = {
@@ -71,7 +71,7 @@ vm_filter = {
 }
 ```
 
-In both cases, the default values will be applied for any unspecified attributes (vcpu.max and memory_gb.max).
+In both cases, the default values will be applied for any unspecified attributes (`vcpu.max` and `memory_gb.max`).
 
 DESCRIPTION
 }
