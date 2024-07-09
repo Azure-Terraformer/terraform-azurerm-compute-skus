@@ -1,4 +1,6 @@
-# terraform-azurerm-compute-sku
+# Azure Compute SKU Lookup Module
+The Azure Compute SKU Lookup Module is a Terraform module designed to provide a list of available VM and disk SKUs for a specified Azure region. This module allows users to filter SKUs based on minimum and maximum values for virtual CPUs (vCPUs) and memory (in GB), enabling fine-grained control over the resources selected. By leveraging this module, users can dynamically retrieve and work with the most appropriate Azure SKUs that meet their specific requirements, facilitating efficient and optimized resource provisioning. The module is highly configurable and integrates seamlessly with existing Terraform configurations, making it an essential tool for Azure infrastructure management.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
