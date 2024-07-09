@@ -1,3 +1,3 @@
 output "skus" {
-  value = module.skus.vms
+  value = module.skus.all_vm_skus
 }
