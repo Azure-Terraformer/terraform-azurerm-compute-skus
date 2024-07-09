@@ -30,11 +30,8 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_location"></a> [location](#input\_location) | The Azure region for which to retrieve the list of SKUs. | `string` | n/a | yes |
-| <a name="input_max_memory_gb"></a> [max\_memory\_gb](#input\_max\_memory\_gb) | The maximum amount of memory (in GB) allowed. | `number` | `999999` | no |
-| <a name="input_max_vcpu"></a> [max\_vcpu](#input\_max\_vcpu) | The maximum number of virtual CPUs allowed. | `number` | `9999` | no |
-| <a name="input_min_memory_gb"></a> [min\_memory\_gb](#input\_min\_memory\_gb) | The minimum amount of memory (in GB) required. | `number` | `0` | no |
-| <a name="input_min_vcpu"></a> [min\_vcpu](#input\_min\_vcpu) | The minimum number of virtual CPUs required. | `number` | `0` | no |
+| <a name="input_location"></a> [location](#input\_location) | The Azure region for which to retrieve the list of SKUs." | `string` | n/a | yes |
+| <a name="input_vm_filter"></a> [vm\_filter](#input\_vm\_filter) | An object specifying filtering criteria for VM SKUs based on vCPU and memory requirements.<br><br>Attributes:<br>- `resources`: An object containing:<br>  - `vcpu`: An object containing:<br>    - `min` (number): Minimum number of vCPUs required.<br>    - `max` (number, optional): Maximum number of vCPUs allowed (default: 9999).<br>  - `memory_gb`: An object containing:<br>    - `min` (number): Minimum amount of memory (in GB) required.<br>    - `max` (number, optional): Maximum amount of memory (in GB) allowed (default: 999999).<br><br>Sample inputs:<br><br>1. Specifying only `vcpu.min`:<pre>hcl<br>vm_filter = {<br>  resources = {<br>    vcpu = {<br>      min = 4<br>    }<br>  }<br>}</pre>2. Specifying vcpu.min, vcpu.max, and memory\_gb.min:<pre>hcl<br>vm_filter = {<br>  resources = {<br>    vcpu = {<br>      min = 4<br>      max = 8<br>    }<br>    memory_gb = {<br>      min = 16<br>    }<br>  }<br>}</pre>In both cases, the default values will be applied for any unspecified attributes (vcpu.max and memory\_gb.max). | <pre>object({<br>    resources = object({<br>      vcpu = object({<br>        min = optional(number, 0)<br>        max = optional(number, 9999)<br>      })<br>      memory_gb = object({<br>        min = optional(number, 0)<br>        max = optional(number, 999999)<br>      })<br>    })<br>  })</pre> | <pre>{<br>  "resources": {<br>    "memory_gb": {<br>      "max": 999999,<br>      "min": 0<br>    },<br>    "vcpu": {<br>      "max": 9999,<br>      "min": 0<br>    }<br>  }<br>}</pre> | no |
 
 ## Outputs
 
