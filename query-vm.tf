@@ -77,8 +77,8 @@ locals {
   matching_vm_skus = [
     for sku in local.all_vm_skus : sku
     if(
-      (sku.resources.vcpus >= var.vm_filter.vcpu.min && sku.resources.vcpus <= var.vm_filter.vcpu.max) &&
-      (sku.resources.memory_gb >= var.vm_filter.memory_gb.min && sku.resources.memory_gb <= var.vm_filter.memory_gb.max)
+      (sku.resources.vcpus >= var.vm_filter.resources.vcpu.min && sku.resources.vcpus <= var.vm_filter.resources.vcpu.max) &&
+      (sku.resources.memory_gb >= var.vm_filter.resources.memory_gb.min && sku.resources.memory_gb <= var.vm_filter.resources.memory_gb.max)
     )
   ]
 }

@@ -4,6 +4,10 @@ output "disks" {
       all      = [for sku in local.all_disk_skus : sku.name]
       matching = []
     }
+    details = {
+      all      = local.all_disk_skus
+      matching = []
+    }
   }
   description = <<DESCRIPTION
 A complex object containing two lists of disk SKU names:
@@ -17,6 +21,10 @@ Sample structure:
     all = ["Standard_LRS", "StandardSSD_LRS", "Premium_LRS", ...]
     matches = ["StandardSSD_LRS", "Premium_LRS", ...]
   }
+  details = {
+    all = [ ... ]
+    matches = [ ... ]
+  }
 }
 ```
 DESCRIPTION
@@ -27,6 +35,10 @@ output "vms" {
     names = {
       all      = [for sku in local.all_vm_skus : sku.name]
       matching = [for sku in local.matching_vm_skus : sku.name]
+    }
+    details = {
+      all      = local.all_vm_skus
+      matching = local.matching_vm_skus
     }
   }
   description = <<DESCRIPTION
@@ -40,6 +52,10 @@ Sample structure:
   names = {
     all = ["Standard_B1ls", "Standard_B1ms", "Standard_D2s_v3", ...]
     matches = ["Standard_D2s_v3", "Standard_E2s_v3", ...]
+  }
+  details = {
+    all = [ ... ]
+    matches = [ ... ]
   }
 }
 ```
