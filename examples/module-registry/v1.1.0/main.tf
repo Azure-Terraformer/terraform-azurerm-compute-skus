@@ -1,7 +1,7 @@
 
 module "v1_1" {
   source   = "Azure-Terraformer/compute-skus/azurerm"
-  version  = "1.1.0"
+  version  = "1.1.1"
   location = "westus3"
 
   vm_filter = {
