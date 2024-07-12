@@ -5,6 +5,7 @@ locals {
       resourceType = sku.resourceType
       tier         = sku.tier
       size         = sku.size
+      family       = sku.family
       capabilities = {
         for capability in sku.capabilities :
         capability.name => capability.value
@@ -52,6 +53,7 @@ locals {
       resourceType = sku.resourceType
       tier         = sku.tier
       size         = sku.size
+      family       = sku.family
       resources = {
         vcpus           = tonumber(sku.capabilities["vCPUs"])
         vcpus_available = tonumber(sku.capabilities["vCPUsAvailable"])

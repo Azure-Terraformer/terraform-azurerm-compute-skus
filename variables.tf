@@ -1,7 +1,7 @@
 variable "location" {
   type        = string
   description = <<DESCRIPTION
-  The Azure region for which to retrieve the list of SKUs."
+  The Azure region for which to retrieve the list of SKUs.
   DESCRIPTION
 }
 variable "vm_filter" {

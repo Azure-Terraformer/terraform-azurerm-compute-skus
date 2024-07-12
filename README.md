@@ -1,4 +1,6 @@
-# terraform-azurerm-compute-sku
+# Azure Compute SKU Lookup Module
+The Azure Compute SKU Lookup Module is a Terraform module designed to provide a list of available VM and disk SKUs for a specified Azure region. This module allows users to filter SKUs based on minimum and maximum values for virtual CPUs (vCPUs) and memory (in GB), enabling fine-grained control over the resources selected. By leveraging this module, users can dynamically retrieve and work with the most appropriate Azure SKUs that meet their specific requirements, facilitating efficient and optimized resource provisioning. The module is highly configurable and integrates seamlessly with existing Terraform configurations, making it an essential tool for Azure infrastructure management.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
@@ -30,7 +32,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_location"></a> [location](#input\_location) | The Azure region for which to retrieve the list of SKUs." | `string` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | The Azure region for which to retrieve the list of SKUs. | `string` | n/a | yes |
 | <a name="input_vm_filter"></a> [vm\_filter](#input\_vm\_filter) | An object specifying filtering criteria for VM SKUs based on vCPU and memory requirements.<br><br>Attributes:<br>- `resources`: An object containing:<br>  - `vcpu`: An object containing:<br>    - `min` (number): Minimum number of vCPUs required.<br>    - `max` (number, optional): Maximum number of vCPUs allowed (default: 9999).<br>  - `memory_gb`: An object containing:<br>    - `min` (number): Minimum amount of memory (in GB) required.<br>    - `max` (number, optional): Maximum amount of memory (in GB) allowed (default: 999999).<br><br>Sample inputs:<br><br>1. Specifying only `vcpu.min`:<pre>vm_filter = {<br>  resources = {<br>    vcpu = {<br>      min = 4<br>    }<br>  }<br>}</pre>2. Specifying `vcpu.min`, `vcpu.max`, and `memory_gb.min`:<pre>vm_filter = {<br>  resources = {<br>    vcpu = {<br>      min = 4<br>      max = 8<br>    }<br>    memory_gb = {<br>      min = 16<br>    }<br>  }<br>}</pre>In both cases, the default values will be applied for any unspecified attributes (`vcpu.max` and `memory_gb.max`). | <pre>object({<br>    resources = object({<br>      vcpu = object({<br>        min = optional(number, 0)<br>        max = optional(number, 9999)<br>      })<br>      memory_gb = object({<br>        min = optional(number, 0)<br>        max = optional(number, 999999)<br>      })<br>    })<br>  })</pre> | <pre>{<br>  "resources": {<br>    "memory_gb": {<br>      "max": 999999,<br>      "min": 0<br>    },<br>    "vcpu": {<br>      "max": 9999,<br>      "min": 0<br>    }<br>  }<br>}</pre> | no |
 
 ## Outputs
