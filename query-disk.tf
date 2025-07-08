@@ -1,6 +1,6 @@
 locals {
   raw_disk_skus = [
-    for sku in jsondecode(data.azapi_resource_action.skus.output).value : {
+    for sku in data.azapi_resource_action.skus.output.value : {
       name         = sku.name
       resourceType = sku.resourceType
       tier         = sku.tier
